@@ -225,7 +225,8 @@ void TraceResult::CalcShadingData()
 		), 0.f, 1.f);
 	}
 
-	albedo *= vec3(colour.r, colour.g, colour.b);
+	vec3 linearColour = SRGBToLinear(vec3(colour.r, colour.g, colour.b));
+	albedo *= linearColour;
 	alpha *= colour.a;
 
 	if (material.mrao != nullptr) {

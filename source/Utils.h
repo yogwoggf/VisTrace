@@ -76,3 +76,8 @@ inline float TriUVInfoToTexLOD(const VisTrace::IVTFTexture* pTex, glm::vec2 uvIn
 {
 	return uvInfo.x + 0.5f * log2(pTex->GetWidth() * pTex->GetHeight() * uvInfo.y);
 }
+
+inline glm::vec3 SRGBToLinear(glm::vec3 color)
+{
+	return glm::pow(color, glm::vec3(2.2f));
+}
